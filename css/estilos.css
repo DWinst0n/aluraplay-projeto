@@ -110,6 +110,9 @@ body {
     background-color: var(--azul-medio);
     transition: .5s;
 }
+.itens__titulo {
+    pointer-events: none;
+}
 
 .icone__inicio::before {
     content: url(../img/menu/home.png);
@@ -221,7 +224,6 @@ body {
 
 .videos__container {
     color: black;
-    padding: 153px 20px 10px 20px;
 }
 
 .videos__item:hover {
@@ -245,7 +247,6 @@ body {
 
 .rodape__container {
     width: 100%;
-    height: 875px;
     color: var(--cinza-texto);
     line-height: 1.5;
     font-size: 16px;
@@ -287,50 +288,8 @@ body {
     }
     /*ESTILOS SEÇÃO VÍDEOS */
 
-    .videos__container {
-        padding-left: 90px;
-        padding-right: 17px;
-    }
-
     .videos__item:hover {
         transform: scale(1.3);
-    }
-
-    /* ESTILOS RODAPÉ */
-
-    .rodape__container {
-        height: 420px;
-        padding-left: 74px;
-    }
-
-}
-
-@media(min-width: 1440px) {
-
-    /* SEÇÃO SUPERIOR */
-
-    .superior__secao__container {
-        left: 247px;
-    }
-
-    /* ESTILOS DO MENU LATERAL */
-
-    .menu__lista {
-        border-bottom: 1.5px solid var(--azul-medio);
-    }
-
-    /* ESTILOS VIDEOS */
-
-    .videos__container {
-        padding-right: 10px;
-        padding-left: 248px;
-    }
-
-    /* ESTILOS RODAPÉ */
-
-    .rodape__container {
-        padding-left: 240px;
-        height: 225px;
     }
 
 }
