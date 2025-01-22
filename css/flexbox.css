@@ -56,3 +56,30 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.videos__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.videos__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    max-width: 17rem;
+    width: 100%;
+}
+.descricao-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.descricao__video__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
