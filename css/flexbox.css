@@ -1,1 +1,58 @@
+.cabecalho__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+}
 
+.menu__container {
+    display: flex;
+    flex-direction: column;
+
+    width: 16%;
+    
+    position: fixed;
+    top: 80px;
+    height: calc(100vh - 80px);
+
+    overflow-y: auto;
+    scrollbar-color: var(--azul-claro) transparent;
+}
+.menu__lista {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 1.5rem;
+}
+.menu__lista li a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    gap: 0.25rem;
+}
+.menu__lista li {
+    padding: 1rem 1.38rem 0 0;
+}
+.superior__secao__container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    overflow-x: scroll;
+
+    white-space: nowrap;
+}
+.listaDesktop {
+    flex-direction: column-reverse;
+}
+.rodape__container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.rodape__container section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

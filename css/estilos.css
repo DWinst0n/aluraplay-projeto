@@ -8,6 +8,13 @@
     --cinza-claro: #ECECEC;
     box-sizing: border-box;
 }
+.mobile1, .mobile2 {
+    display: none;
+}
+html, * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--azul-medio) transparent;
+}
 
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -191,7 +198,8 @@ body {
     position: fixed;
     top: 80px;
     right: 0;
-    left: 0;
+    left: 16%;
+    width: calc(100vw - 16%);
 }
 
 .superior__item {
@@ -276,9 +284,7 @@ body {
         border-top: var(--azul-medio) 1px solid;
         border-bottom: var(--azul-medio) 1px solid;
         width: auto;
-        left: 82px;
     }
-
     /*ESTILOS SEÇÃO VÍDEOS */
 
     .videos__container {
