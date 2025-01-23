@@ -6,7 +6,20 @@
     z-index: 1;
     top:0;
 }
-
+.mobile1, .mobile2 {
+    display: none;
+}
+.cabecalho__pesquisar__item {
+    display: flex;
+    gap: 1rem;
+}
+.cabecalho__pesquisar__item input {
+    height: 2.5rem;
+}
+.cabecalho__pesquisar__item form{
+    display: flex;
+    justify-content: center;
+}
 .menu__container {
     display: flex;
     flex-direction: column;
@@ -24,7 +37,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-bottom: 1.5rem;
     border-bottom: 1.5px solid var(--azul-medio);
 }
 .menu__lista li a {
@@ -51,18 +63,24 @@
 .rodape__container {
     display: flex;
     justify-content: space-evenly;
+    margin-left: 16%;
+    width: calc(100% - 16%);
 }
 .rodape__container section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: min-content;
+}
+.rodape__container p, .rodape__container h2 {
+    white-space: nowrap;
 }
 .videos__container {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 150px 0 0 16%;
+    margin: 12.5rem 0 0 16%;
 }
 .videos__item {
     display: flex;
@@ -89,6 +107,9 @@
     .desktop {
         display: none;
     }
+    .mobile1 {
+        display: block;
+    }
     .menu__itens {
         display: flex;
         flex-direction: column;
@@ -102,29 +123,39 @@
         padding: 0.25rem;
     }
     .menu__lista {
-        gap: 1.5rem;
+        gap: 1rem;
     }
-    .videos__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+    .rodape__container {
         flex-wrap: wrap;
-        margin: 150px 0 0 16%;
+    }
+}
+@media screen and (max-width: 674px) {
+    .cabecalho__pesquisar__item {
+        display: none;
     }
 }
 @media screen and (max-width: 428px) {
     .menu__container {
         flex-direction: row;
-        width: 100vw;
         top: auto;
+        width: 100vw;
         height: max-content;
         overflow-y: hidden;
-        overflow-x: hidden;
         bottom: 0;
     }
+    .superior__secao__container {
+        left: 0;
+        width: 100vw;
+    }
+    .menu__lista, .menu__lista li a {
+        padding: 0;
+    }
     .menu__lista {
+        gap: 0.25rem;
+        width: 100%;
+        padding: 1rem 0;
         flex-direction: row;
-        padding: 1rem;
+        justify-content: space-evenly;
     }
     .videos__container {
         margin: 150px 0 0 0;
@@ -135,9 +166,9 @@
         width: 100%;
     }
     .rodape__container {
-        flex-direction: column;
-        margin-bottom: 5.625rem;
+        margin: auto;
         height: max-content;
+        margin-bottom: 6.625rem;
     }
     .rodape__container section {
         align-items: center;
