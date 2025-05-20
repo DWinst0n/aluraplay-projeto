@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "json-server --watch videos.json"
+  },
+  "author": "DWinst0n",
+  "license": "ISC",
+  "description": ""
+}
