@@ -18,17 +18,21 @@
         <nav class="cabecalho__container">
             <h1 class="logo__item" href="#"></h1>
             <div class="cabecalho__pesquisar__item">
-                <form for="pesquisar">
-                    <input type="search" placeholder="Pesquisar" id="pesquisar" class="pesquisar__input">
-                    <label for="pesquisar" class="pesquisar__label"></label>
+                <form class="form__pesquisa">
+                    <input type="search" class="pesquisar__input" placeholder="Pesquisar">
+                    <button class="pesquisar__btn">
+                        <img src="img/cabecalho/search.png" alt="ícone de lupa">
+                    </button>
+                    <button class="cabecalho__audio">
+                        <img src="img/cabecalho/Mic.png" alt="ícone de microfone">
+                    </button>
                 </form>
-                <a href="#" class="cabecalho__audio"></a>
             </div>
             <div class="cabecalho__icones__item">
                 <a href="#" class="cabecalho__videos"></a>
                 <a href="#" class="cabecalho__apps"></a>
                 <a href="#" class="cabecalho__notificacoes"></a>
-                <a href="#" class="cabecalho__avatar"></a>
+                <img class="cabecalho__avatar" src="img/cabecalho/Avatar.png" alt="Imagem do Usuário">
             </div>
         </nav>
     </header>
@@ -233,4 +237,5 @@
 </body>
 
 </html>
+<script src="https://www.youtube.com/iframe_api"></script>
 <script src="app/js/script.js" type="module"></script>

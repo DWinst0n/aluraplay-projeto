@@ -16,7 +16,6 @@ html, * {
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
     background-color: var(--azul-claro);
-    position: relative;
     width: 100%;
     min-height: 100vh;
     overflow: auto;
@@ -24,89 +23,92 @@ body {
     color: white;
     box-sizing: border-box;
     text-align: center;
-    /* overflow-x: hidden; */
 }
 
-/* CABEÇALHO */
 
 .cabecalho__container {
     background-color: white;
-    height: 80px;
+    height: 5rem;
     width: 100%;
-    padding: 0 25px;
+    padding: 0 1.5625rem;
 }
 
 .logo__item {
     background-image: url(../img/cabecalho/Logo.png);
     background-repeat: no-repeat;
-    padding: 15px 65px;
+    padding: 0.9375rem 4.0625rem;
     cursor: pointer;
 }
 
 .pesquisar__input {
-    width: 260px;
-    height: 32px;
-    border: 1px solid rgb(211, 211, 211);
-    font-size: 16px;
-    padding: 3px 8px;
-    border: 1px solid rgb(211, 211, 211);
+    padding: 0.5rem;
+    border: 0.125rem solid var(--cinza-claro);
+    border-radius: 2rem 0 0 2rem;
+    font-size: 1rem;
+    width: 25vw;
+    color:var(--cinza-texto);
+
+    background-image: url("../img/cabecalho/keyboard.png");
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1.25rem 0.875rem; 
+    padding-right: 2rem;
 }
 
-.pesquisar__label {
-    background-image: url(../img/cabecalho/search.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px solid rgb(211, 211, 211);
-    background-color: #F9F9F9;
+.pesquisar__btn {
+    background-color: var(--cinza-claro);
+    border: 0;
+    border-radius: 0 2rem 2rem 0;
+    padding: 0.5rem;
+    padding-right: 0.9375rem;
     border-left: none;
-    padding: 8px 18px 5px;
     cursor: pointer;
 }
 
 .cabecalho__audio {
-    background-image: url(../img/cabecalho/mic.png);
-    background-repeat: no-repeat;
-    padding: 20px;
+    border: 0;
+    margin: 0 0 0 2rem;
+    background-color: var(--branco);
 }
 
 .cabecalho__videos {
     background-image: url(../img/cabecalho/video_call.png);
     background-repeat: no-repeat;
     background-position: center;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .cabecalho__apps {
     background-image: url(../img/cabecalho/apps.png);
     background-repeat: no-repeat;
     background-position: center;
-    padding: 13px 30px 13px 13px;
+    padding: 0.8125rem 1.875rem 0.8125rem 0.8125rem;
 }
 
 .cabecalho__notificacoes {
     background-image: url(../img/cabecalho/notifications.png);
     background-repeat: no-repeat;
     background-position: center;
-    padding: 13px 30px 13px 13px;
+    padding: 0.8125rem 1.875rem 0.8125rem 0.8125rem;
 }
 
 .cabecalho__avatar {
-    background-image: url(../img/cabecalho/Avatar.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 13px 30px 13px 13px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8rem;
+    cursor: pointer;
+    border: solid 2px var(--azul-escuro);
 }
-
-/* MENU LATERAL */
 
 .menu__container {
     background-color: var(--azul-escuro);
-    font-size: 14px;
+    font-size: 0.875rem;
+    width: 15vw;
 }
 
 .menu__itens:hover {
     background-color: var(--azul-medio);
-    transition: .5s;
+    transition: 0.5s;
 }
 .itens__titulo {
     pointer-events: none;
@@ -188,47 +190,62 @@ body {
     content: url(../img/menu/jogos.png);
 }
 
-/* SECAO SUPERIOR */
+
+.menu__lista {
+    border-bottom: 0.09375rem solid var(--azul-medio);
+}
+
+.menu__lista li a {
+    padding: 0.25rem 1rem;
+}
+.menu__lista li {
+    padding: 1rem 1.38rem 0 0;
+}
 
 .superior__secao__container {
-    height: 63px;
+    height: 3.9375rem;
     color: white;
-    font-size: 16px;
+    overflow-x: auto;
+    font-size: 1rem;
     background-color: var(--azul-claro);
-    padding: 0 20px;
+    padding: 0 1.25rem;
     position: fixed;
-    top: 80px;
+    top: 5rem;
     right: 0;
-    left: 16%;
-    width: calc(100vw - 16%);
+    left: 15vw;
+    white-space: nowrap;
 }
 
 .superior__item {
     color: var(--cinza-texto);
-    font-size: 16px;
+    font-size: 1rem;
     background-color: white;
-    border-radius: 20px;
-    padding: 8px 20px;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1.25rem;
     cursor: pointer;
 }
 
 .superior__item:hover {
     color: white;
     background-color: var(--azul-escuro);
-    transition: .5s;
+    transition: 0.5s;
 }
 
-/* SEÇÃO VÍDEOS */
 
 .videos__container {
+    margin: 10.85rem 0 0 16%;
     color: black;
 }
 
+.videos__item {
+    margin-bottom: 2.5rem;
+    max-width: 17rem;
+    width: 100%;
+}
+
 .videos__item:hover {
-    transform: scale(1.3);
     background-color: var(--azul-claro);
     z-index: 2;
-    transition: .5s;
 }
 
 .descricao-video h3 {
@@ -237,48 +254,64 @@ body {
 }
 
 .descricao-video p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #444444;
 }
 
-/* RODAPÉ */
 
 .rodape__container {
-    width: 100%;
+    margin-left: 10%;
+    width: calc(100% - 10%);
     color: var(--cinza-texto);
     line-height: 1.5;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: white;
+    padding: 0.75rem;
 }
 
 .rodape__titulo {
     color: var(--azul-medio);
     font-weight: bold;
-    padding: 10px 0 20px 0;
+    padding: 0.625rem 0 1.25rem 0;
 }
 
-@media(min-width: 834px) {
+@media (min-width: 834px) {
 
     body {
         height: 100vh;
     }
 
-    /* ESTILOS DO MENU LATERAL */
 
     .menu__container {
-        font-size: 16px;
+        font-size: 1rem;
     }
-    /* ESTILOS DA SECAO SUPERIOR */
 
     .superior__secao__container {
-        border-top: var(--azul-medio) 1px solid;
-        border-bottom: var(--azul-medio) 1px solid;
-        width: auto;
-    }
-    /*ESTILOS SEÇÃO VÍDEOS */
-
-    .videos__item:hover {
-        transform: scale(1.3);
+        border-top: var(--azul-medio) 0.0625rem solid;
+        border-bottom: var(--azul-medio) 0.0625rem solid;
     }
 
+}
+
+@media screen and (max-width: 834px) {
+    .menu__lista li {
+        padding: 0.25rem;
+    }
+}
+
+@media screen and (max-width: 428px) {
+    .menu__lista, .menu__lista li a {
+        padding: 0;
+    }
+    .menu__lista {
+        padding: 1rem 0;
+    }
+    .videos__container {
+        margin: 9.375rem 0 0 0;
+    }
+    .videos__item {
+        margin-bottom: 2.5rem;
+        max-width: 22rem;
+        width: 100%;
+    }
 }
