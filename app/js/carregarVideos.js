@@ -1,9 +1,10 @@
+import { api } from "./videos.js";
+
 const containerVideos = document.querySelector(".videos__container");
 
-export async function buscarEMostrarVideos(){
+export async function buscarEMostrarVideos(filtro = false){
     try{
-        const busca = await fetch("http://localhost:3000/videos");
-        const videos = await busca.json();
+        const videos = await api.buscarIdeias();
 
             videos.forEach((video, i)=> {
                 if(video.categoria == ""){

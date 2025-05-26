@@ -1,59 +1,60 @@
 import { buscarEMostrarVideos } from "./carregarVideos.js";
+import { api } from "./videos.js";
 
-const containerVideos = document.querySelector(".videos__container");
+window.addEventListener('DOMContentLoaded', async () => {
+    await api.init();
 
-let players = {};
-
-function onYouTubeIframeAPIReady() {
-  document.querySelectorAll('iframe').forEach((iframe, index) => {
-    const playerId = `player${index}`;
-    iframe.id = playerId;
-    players[playerId] = new YT.Player(playerId, {
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  });
-}
-
-function onPlayerReady(event) {
-  const iframe = event.target.getIframe();
-  let hoverTimeout;
-  let videoIniciado = false;
-
-  iframe.addEventListener('mouseenter', () => {
-    hoverTimeout = setTimeout(() => {
-      event.target.mute();
-      event.target.playVideo();
-      videoIniciado = true;
-    }, 800);
-  });
-
-  iframe.addEventListener('mouseleave', () => {
-    clearTimeout(hoverTimeout);
-
-    if (videoIniciado) {
-      const oldIframe = event.target.getIframe();
-      const iframeContainer = oldIframe.parentNode;
-      const newIframe = oldIframe.cloneNode(true);
-
-      iframeContainer.replaceChild(newIframe, oldIframe);
-
-      new YT.Player(newIframe.id, {
+    let players = {};
+    function onYouTubeIframeAPIReady() {
+    document.querySelectorAll('iframe').forEach((iframe, index) => {
+        const playerId = `player${index}`;
+        iframe.id = playerId;
+        players[playerId] = new YT.Player(playerId, {
         events: {
-          onReady: onPlayerReady
+            'onReady': onPlayerReady
         }
-      });
-
-      videoIniciado = false;
+        });
+    });
     }
-  });
-}
 
-/* buscarEMostrarVideos();
- */setTimeout(() => {
-  onYouTubeIframeAPIReady();
-}, 100);
+    function onPlayerReady(event) {
+    const iframe = event.target.getIframe();
+    let hoverTimeout;
+    let videoIniciado = false;
+
+    iframe.addEventListener('mouseenter', () => {
+        hoverTimeout = setTimeout(() => {
+        event.target.mute();
+        event.target.playVideo();
+        videoIniciado = true;
+        }, 800);
+    });
+
+    iframe.addEventListener('mouseleave', () => {
+        clearTimeout(hoverTimeout);
+
+        if (videoIniciado) {
+        const oldIframe = event.target.getIframe();
+        const iframeContainer = oldIframe.parentNode;
+        const newIframe = oldIframe.cloneNode(true);
+
+        iframeContainer.replaceChild(newIframe, oldIframe);
+
+        new YT.Player(newIframe.id, {
+            events: {
+            onReady: onPlayerReady
+            }
+        });
+
+        videoIniciado = false;
+        }
+    });
+    }
+
+    await buscarEMostrarVideos();
+    onYouTubeIframeAPIReady();
+})
+
 
 const barraDePesquisa = document.querySelector(".pesquisar__input");
 barraDePesquisa.addEventListener("input", filtrarPesquisa);
