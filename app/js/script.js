@@ -1,33 +1,59 @@
+import { buscarEMostrarVideos } from "./carregarVideos.js";
+
 const containerVideos = document.querySelector(".videos__container");
-async function buscarEMostrarVideos(){
-    try{
-        const busca = await fetch("http://localhost:3000/videos");
-        const videos = await busca.json();
 
-            videos.forEach((video)=> {
-                if(video.categoria == ""){
-                    throw new Error('Vídeo não tem categoria');
-                }
-                containerVideos.innerHTML += `
-                <li class="videos__item">
-                    <iframe width="100%" height="72%" src="${video.url}" title="${video.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="descricao-video">
-                        <img src="${video.imagem}" alt="Logo do Canal">
-                        <div class="descricao__texto">
-                            <h3>${video.titulo}</h3>
-                            <p>${video.descricao}</p>
-                            <p class="categoria" hidden>${video.categoria}</p>
-                        </div>
-                    </div>
-                </li>
-                `;
-            })
-    } catch(error){
-        containerVideos.innerHTML = `<p> Houve um erro ao carregar os vídeos: ${error}</p>`
-    }
+let players = {};
+
+function onYouTubeIframeAPIReady() {
+  document.querySelectorAll('iframe').forEach((iframe, index) => {
+    const playerId = `player${index}`;
+    iframe.id = playerId;
+    players[playerId] = new YT.Player(playerId, {
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  });
 }
-buscarEMostrarVideos();
 
+function onPlayerReady(event) {
+  const iframe = event.target.getIframe();
+  let hoverTimeout;
+  let videoIniciado = false;
+
+  iframe.addEventListener('mouseenter', () => {
+    hoverTimeout = setTimeout(() => {
+      event.target.mute();
+      event.target.playVideo();
+      videoIniciado = true;
+    }, 800);
+  });
+
+  iframe.addEventListener('mouseleave', () => {
+    clearTimeout(hoverTimeout);
+
+    if (videoIniciado) {
+      const oldIframe = event.target.getIframe();
+      const iframeContainer = oldIframe.parentNode;
+      const newIframe = oldIframe.cloneNode(true);
+
+      iframeContainer.replaceChild(newIframe, oldIframe);
+
+      new YT.Player(newIframe.id, {
+        events: {
+          onReady: onPlayerReady
+        }
+      });
+
+      videoIniciado = false;
+    }
+  });
+}
+
+/* buscarEMostrarVideos();
+ */setTimeout(() => {
+  onYouTubeIframeAPIReady();
+}, 100);
 
 const barraDePesquisa = document.querySelector(".pesquisar__input");
 barraDePesquisa.addEventListener("input", filtrarPesquisa);
