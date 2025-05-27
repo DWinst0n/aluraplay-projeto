@@ -70,7 +70,7 @@ const fakeAPIOp = {
 
 export const api = {
     init: initApi,
-    buscarIdeias: async function() {
+    buscarVideos: async function() {
         return usarLocalStorage ? 
             await localStorageOp.buscarVideos() : 
             await fakeAPIOp.buscarVideos();

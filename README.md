@@ -23,6 +23,8 @@ Para isso, aprenderemos a utilizar o **Node.js**, necessário para aplicar todas
 
 ## 🛠️ Abrir e rodar o projeto
 
+⚠️ Se os vídeos não estiverem funcionando corretamente ou se o console mostrar erros de postMessage, tente desativar bloqueadores de anúncios.
+
 Após baixar ou clonar o projeto deste repositório, você precisa ter o [Node.js](https://nodejs.org/) e o [`json-server`](https://www.npmjs.com/package/json-server) instalados.
 
 Caso não tenha o `json-server` instalado globalmente, execute o seguinte comando:

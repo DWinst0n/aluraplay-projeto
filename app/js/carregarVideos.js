@@ -4,7 +4,7 @@ const containerVideos = document.querySelector(".videos__container");
 
 export async function buscarEMostrarVideos(filtro = false){
     try{
-        const videos = await api.buscarIdeias();
+        const videos = await api.buscarVideos();
 
             videos.forEach((video, i)=> {
                 if(video.categoria == ""){
