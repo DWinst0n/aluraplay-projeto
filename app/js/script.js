@@ -1,6 +1,6 @@
-import { buscarEMostrarVideos } from "carregarVideos.js";
-import { api } from "videos.js";
-import { YT } from "iframeApi.js";
+import { buscarEMostrarVideos } from "./carregarVideos.js";
+import { api } from "./videos.js";
+import YT from "./iframeApi.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
   await api.init();

@@ -1,4 +1,6 @@
-var YT;
+/* script sugerido por IA, fonte: https://www.youtube.com/iframe_api */
+let YT = window["YT"] || { loading: 0, loaded: 0 };
+window["YT"] = YT;
 var scriptUrl =
   "https://www.youtube.com/s/player/91e7c654/www-widgetapi.vflset/www-widgetapi.js";
 window["yt_embedsEnableIframeApiSendFullEmbedUrl"] = true;
@@ -13,7 +15,6 @@ try {
 } catch (e) {
   console.log(e);
 }
-if (!window["YT"]) YT = { loading: 0, loaded: 0 };
 var YTConfig;
 if (!window["YTConfig"]) YTConfig = { host: "https://www.youtube.com" };
 if (!YT.loading) {

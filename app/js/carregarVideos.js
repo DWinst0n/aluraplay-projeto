@@ -12,7 +12,7 @@ export async function buscarEMostrarVideos() {
       }
       containerVideos.innerHTML += `
                 <li class="videos__item">
-                    <iframe id="player${i}" width="100%" height="72%" src="${video.url}?enablejsapi=1" title="${video.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="player${i}" class="iframe__video" width="100%" height="72%" src="${video.url}?enablejsapi=1" title="${video.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="descricao-video">
                         <img src="${video.imagem}" alt="Logo do Canal">
                         <div class="descricao__texto">
