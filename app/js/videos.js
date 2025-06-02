@@ -1,17 +1,15 @@
+const axios = window.axios;
 const enderecoAtual = window.location.href;
 let href = enderecoAtual.split("index.html")[0];
 const enderecoJsonLocal = "http://localhost:3000/videos";
-const arquivoJson = href + "app/backend/videos.json";
+const arquivoJson = href + "app/videos.json";
 
 let usarLocalStorage = false;
 
 async function checkApiAvailability() {
   try {
-    const response = await fetch(enderecoJsonLocal, {
-      method: "HEAD",
-      timeout: 2000,
-    });
-    return response.ok;
+    await axios.head(enderecoJsonLocal, { timeout: 2000 });
+    return true;
   } catch (e) {
     console.log(e + " Localhost API não disponível, usando localStorage...");
     return false;
@@ -21,9 +19,9 @@ async function checkApiAvailability() {
 async function initializeLocalStorage() {
   try {
     if (!window.localStorage.getItem("videos")) {
-      const response = await fetch(arquivoJson);
-      if (response.ok) {
-        const data = await response.json();
+      const response = await axios.get(arquivoJson);
+      if (response.status === 200) {
+        const data = response.data;
         window.localStorage.setItem("videos", JSON.stringify(data));
         console.log("Dados inicializados do arquivo JSON para localStorage");
       } else {
@@ -47,6 +45,7 @@ async function initApi() {
     console.log("Usando API localhost");
   }
 }
+
 const localStorageOp = {
   buscarVideos: async function () {
     try {
@@ -58,12 +57,12 @@ const localStorageOp = {
     }
   },
 };
+
 const fakeAPIOp = {
   buscarVideos: async function () {
     try {
-      const res = await fetch(enderecoJsonLocal);
-      const ideiasJson = await res.json();
-      return ideiasJson;
+      const res = await axios.get(enderecoJsonLocal);
+      return res.data;
     } catch (error) {
       console.error(`[Erro em buscarVideos]: ${error.message}`);
       return [];
